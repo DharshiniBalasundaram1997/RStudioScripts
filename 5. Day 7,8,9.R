@@ -158,3 +158,7 @@ hist(values3, col = "pink", border = "yellow",
 #ggplot , geom_histogram:
 ggplot(iris, aes(x = Sepal.Length, y =Petal.Length,color = Species))+ 
   geom_histogram(stat = "identity")
+
+
+#Day 9:
+
