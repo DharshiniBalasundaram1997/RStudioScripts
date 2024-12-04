@@ -159,6 +159,31 @@ hist(values3, col = "pink", border = "yellow",
 ggplot(iris, aes(x = Sepal.Length, y =Petal.Length,color = Species))+ 
   geom_histogram(stat = "identity")
 
+attach(iris)
 
 #Day 9:
+#box plot:
+boxplot(Petal.Length ~ Species, data  = iris)
 
+
+#box plot - Horizontal:
+boxplot(Petal.Length ~ Species, data  = iris, 
+        horizontal = T)
+
+boxplot(Petal.Length ~ Species, data  = iris, 
+        horizontal = F)
+
+
+#Density PLot:
+a = c(4,5,6,9,8)
+plot(density(a))
+
+
+b = density(Petal.Length)
+plot(b)
+
+c = density(Sepal.Length)
+plot(c)
+
+d = density(Petal.Width)
+plot(d)
