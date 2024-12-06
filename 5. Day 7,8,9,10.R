@@ -57,16 +57,12 @@ ggplot(iris, aes(x = Sepal.Length, y =  Petal.Length) )
 
 
 #ggplot function , geom_bar function, concatenate:
-ggplot(iris, aes(x = Sepal.Length, y =  Petal.Length) ) + 
-  geom_bar(stat = "identity")
-
-
-
-
-
 #geom_bar:
 ggplot(iris, aes(x = Sepal.Length, y =  Petal.Length) ) + 
   geom_bar(stat = "identity")
+
+
+
 
 #Coloured Bar graph:
 ggplot(iris, aes(x = Sepal.Length, y =  Petal.Length) ) + 
@@ -106,7 +102,7 @@ ggplot(iris, aes(x = Sepal.Length, y =  Petal.Length))+
 
 #geom_line:
 ggplot(iris, aes(x = Sepal.Length, y =  Petal.Length))+ 
-  geom_line()
+  geom_line(fill = )
 
 #geom_line – aes (color):
 ggplot(iris, 
@@ -187,3 +183,60 @@ plot(c)
 
 d = density(Petal.Width)
 plot(d)
+
+f = density(Sepal.Length)
+plot(f)
+polygon(f, col = "red", border = "green" )
+
+
+
+
+
+#Day 10:
+
+#Installing plotly:
+install.packages("plotly")
+library(ggplot2)
+library(plotly)
+
+
+#Plotly - Bar:
+a = plot_ly(iris,type = "bar", color = "red", 
+            x = ~Species , y = ~Sepal.Length)
+a
+
+
+b = plot_ly(iris,type = "bar", color = ~Species, 
+            x = Sepal.Length)
+b
+
+c = plot_ly(iris,type = "histogram", color = "red", 
+            x = Species , y = Sepal.Length)
+c
+
+#imported pelican dataset
+attach(PelicanStore)
+ps = PelicanStore
+ps
+View(ps)
+attach (ps)
+
+#Plotly - Bar:
+d = plot_ly(ps, type = "bar", color = ~Method.of.Payment,
+            y = ~Sales)
+d
+
+#Plotly - Box:
+d = plot_ly(ps, type = "box", color = ~Method.of.Payment,
+            y = ~Sales)
+d
+
+#Plotly - scatter:
+d = plot_ly(ps, type = "scatter", color = ~Method.of.Payment,
+            y = ~Sales)
+d
+
+#Plotly - histogram:
+d = plot_ly(ps, type = "histogram", color = ~Method.of.Payment,
+            y = ~Sales)
+d
