@@ -151,3 +151,151 @@ max(Sales)
 #Min - SAles:
 min(Sales)
 
+#Scatter 3d plot:
+plot(new_value2$Profit, new_value2$Sales_Per_Item,
+     col = c("red", "blue"),
+     pch = 18,
+     cex = 0.9,
+     xlab = "profit",
+     ylab = "Sales Per Item",
+     main = "Sales + Profit",
+     col.lab = "navyblue",
+     col.main = "springgreen4")
+
+install.packages("scatterplot3d")
+library(scatterplot3d)
+
+
+scatterplot3d(new_value2$Profit, new_value2$Sales_Per_Item,
+              new_value2$Age,
+              pch = 18,
+              main = "Sales + Profit + Age",
+              col.main = "springgreen4",
+              color = "blue")
+
+
+#scatterplot3d - using sequence:
+scatterplot3d(new_value2[ , 8:10],
+              pch = 18,
+              cex.symbols =  0.9,
+              main = "Sales + Profit + Age",
+              col.main = "springgreen4",
+              color = "pink")
+
+
+
+#Set Angles in 3D Scatter Plots :
+scatterplot3d(new_value2[ , 8:10],main = "Sales + Profit + Age",
+              col.main = "springgreen4",color = "blue",
+              angle = 180)
+
+scatterplot3d(new_value2[ , 8:10], main = "Sales + Profit + Age",
+              col.main = "springgreen4",color = "blue",
+              angle = 360)
+
+scatterplot3d(new_value2[ , 8:10], main = "Sales + Profit + Age",
+              col.main = "springgreen4",color = "blue",
+              angle = 10)
+
+#3D Labels - x,y,z axis title in 3D Scatter Plots :
+scatterplot3d(new_value2[ , 8:10], main = "Sales + Profit + Age",
+              col.main = "springgreen4",color = "blue",
+              xlab = "Age",
+              zlab = "Profit",
+              ylab = "Sales Per Item")
+
+
+
+
+
+
+
+# Box and Grid Parameters to 3D Scatter Plots:
+scatterplot3d(new_value2[ , 9:11],
+              pch = 18,
+              box = TRUE, grid = FALSE)
+
+scatterplot3d(new_value2[ , 9:11],
+              pch = 18,
+              main = "Sales + Profit + Age",
+              col.main = "springgreen4", 
+              box = FALSE, grid = TRUE)
+
+scatterplot3d(new_value2[ , 9:11],
+              pch = 18,
+              main = "Sales + Profit + Age",
+              col.main = "springgreen4", 
+              box = FALSE, grid = FALSE)
+
+scatterplot3d(new_value2[ , 9:11],
+              pch = 18,
+              main = "Sales + Profit + Age",
+              col.main = "springgreen4", 
+              box = TRUE, grid = TRUE)
+
+
+#Height in 3D Scatter  PLOT:
+scatterplot3d(new_value2[ , 9:11],
+              pch = 18,
+              main = "Sales + Profit + Age",
+              col.main = "springgreen4", 
+              box = FALSE, grid = FALSE,
+              type = "h")
+
+
+
+#3dScatter Plots - Grid colors
+scatterplot3d(new_value2$Profit, new_value2$Sales_Per_Item,
+              new_value2$Age, 
+              col.axis =  c("#00AFBB", "#E7B800", "#FC4E07"), #OUTLINE
+              col.grid = c("#00AFBB", "#E7B800", "#FC4E07"), #GRID COLOR
+              col.lab = c("#00AFBB", "#E7B800", "#FC4E07"), #COL.LAB -> AXIS
+              color = "red")
+
+
+#Pairs Function:
+pairs(new_value2[,9:11], pch = 19)  
+
+pairs(new_value2[,8:10], pch = 10,  cex = 1, 
+      col = c("#00AFBB", "#E7B800", "#FC4E07"))
+
+
+
+
+#Legend:
+scatterplot3d(new_value2$Profit, new_value2$Sales_Per_Item,
+              new_value2$Age, 
+              col.axis =  c("#00AFBB", "#E7B800", "#FC4E07"),
+              col.grid = c("#00AFBB", "#E7B800", "#FC4E07"),
+              col.lab = c("#00AFBB", "#E7B800", "#FC4E07"),
+              color = "pink")
+legend(x = "topright", legend = c(new_value2$Age) ,
+       col = c("red","green"), pch = 16, bty = "n", title = "Legend Title") 
+
+
+
+
+
+
+#Assigning colors to 3D Scatter Plots - as.factor:
+install.packages("rgl")
+library(rgl)
+
+install.packages("car")
+library(car)
+
+mycolors = c('royalblue1', 'darkcyan', 'red')
+scatterplot3d(new_value2$Profit, new_value2$Sales_Per_Item,
+              new_value2$Age, cex.symbols = 2,pch = 16,
+              color = mycolors[as.factor(new_value2$Method.of.Payment)])
+
+legend(x = "left", ,
+       inset=.05,
+       col = c(mycolors), 
+       pch = 15,  cex=.5,       
+       title="Number of Method of payemts",
+       legend = c("Mastercard","visa","Discover","American Express") )
+
+
+
+
