@@ -1,0 +1,37 @@
+---
+title: "R"
+author: "Dharshini Balasundaram"
+date: "2024-12-29"
+output: 
+    flexdashboard::flex_dashboard:
+    orientation: rows
+    social: menu
+    source_code: embed
+---
+
+```{r setup, include=FALSE}
+library(car)
+library(flexdashboard)
+Salary<-c(2,4,6,8,10,11,14)
+exp<-c(1,2,3,4,5,6,7)
+regression<-data.frame(Salary,exp)
+View(regression)
+setwd("C:/Users/dhars/Downloads/Dhass/codeing/PowerBI/PowerBi Main Course/Step 6/1. DataSets/R Programming Datasets")
+getwd()
+ps<-read.csv("PelicanStore (1).csv")
+```
+
+## R Markdown
+```{r cars}
+scatterplot(Salary~exp, data =regression)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
